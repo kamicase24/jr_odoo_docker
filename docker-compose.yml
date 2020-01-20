@@ -2,7 +2,7 @@
 version: '3'
 services:
   project:
-    image: "jrojas2415/jr_odoo"
+    image: "jrojas2415/jr_odoo:production"
     depends_on:
       - db
     ports:
