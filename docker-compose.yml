@@ -1,0 +1,21 @@
+
+version: '3'
+services:
+  project:
+    image: "jrojas2415/jr_odoo"
+    depends_on:
+      - db
+    ports:
+      - "80:8069"
+    volumes:
+      - ./project:/mnt/project
+      - ./odoo.conf:/etc/odoo/odoo.conf
+      - ./project_utils:/mnt/project_utils
+    stdin_open: true
+  db:
+    image: "postgres"
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+    stdin_open: true
